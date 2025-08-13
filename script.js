@@ -582,16 +582,19 @@ function initRatingSystem() {
 function initEnhancedMobileNav() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
     
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
-            // Add smooth animation
+            // Prevent body scroll when menu is open
             if (navMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
                 navMenu.style.animation = 'slideDown 0.3s ease forwards';
             } else {
+                body.style.overflow = '';
                 navMenu.style.animation = 'slideUp 0.3s ease forwards';
             }
         });
@@ -601,7 +604,26 @@ function initEnhancedMobileNav() {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                body.style.overflow = '';
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+        
+        // Close menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
         });
     }
 }
