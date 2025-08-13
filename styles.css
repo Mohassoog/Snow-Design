@@ -177,6 +177,9 @@ body {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 1001;
+    background: none;
+    border: none;
+    outline: none;
 }
 
 .bar {
@@ -185,6 +188,7 @@ body {
     background-color: #333;
     margin: 3px 0;
     transition: 0.3s;
+    display: block;
 }
 
 .hamburger.active .bar:nth-child(1) {
@@ -197,6 +201,19 @@ body {
 
 .hamburger.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Ensure hamburger is clickable */
+.hamburger {
+    pointer-events: auto !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.hamburger * {
+    pointer-events: none;
 }
 
 /* Mobile Navigation Animations */
@@ -1159,27 +1176,33 @@ section {
     }
     
     .hamburger {
-        display: flex;
+        display: flex !important;
+        position: relative;
+        z-index: 1001;
+        pointer-events: auto !important;
+        cursor: pointer !important;
     }
 
     .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
-        z-index: 1000;
-        max-height: calc(100vh - 70px);
-        overflow-y: auto;
+        position: fixed !important;
+        left: -100% !important;
+        top: 70px !important;
+        flex-direction: column !important;
+        background-color: white !important;
+        width: 100% !important;
+        text-align: center !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05) !important;
+        padding: 2rem 0 !important;
+        z-index: 1000 !important;
+        max-height: calc(100vh - 70px) !important;
+        overflow-y: auto !important;
+        display: flex !important;
     }
 
     .nav-menu.active {
-        left: 0;
+        left: 0 !important;
+        transform: translateX(0) !important;
     }
     
     .nav-item {
@@ -1759,6 +1782,8 @@ html {
     justify-content: center;
     z-index: 10000;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    text-align: center;
+    padding: 2rem;
 }
 
 .loading-overlay.hidden {
@@ -1771,6 +1796,19 @@ html {
     height: 120px;
     margin-bottom: 2rem;
     animation: pulse 2s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.loading-logo i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: white;
 }
 
 .loading-progress {
@@ -1780,6 +1818,8 @@ html {
     border-radius: 2px;
     overflow: hidden;
     margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .loading-bar {
@@ -1794,11 +1834,58 @@ html {
     color: white;
     font-size: 1.1rem;
     font-weight: 500;
+    text-align: center;
+    width: 100%;
 }
 
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* Responsive Loading Screen */
+@media (max-width: 768px) {
+    .loading-logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .loading-logo i {
+        font-size: 3rem;
+    }
+    
+    .loading-progress {
+        width: 250px;
+        height: 3px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .loading-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+    }
+    
+    .loading-logo i {
+        font-size: 2.5rem;
+    }
+    
+    .loading-progress {
+        width: 200px;
+        height: 3px;
+        margin-bottom: 0.6rem;
+    }
+    
+    .loading-text {
+        font-size: 0.9rem;
+    }
 }
 
 /* Advanced Statistics Section */

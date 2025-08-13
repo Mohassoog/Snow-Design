@@ -584,29 +584,36 @@ function initEnhancedMobileNav() {
     const navMenu = document.querySelector('.nav-menu');
     const body = document.body;
     
+    console.log('Initializing mobile navigation...'); // Debug log
+    console.log('Hamburger found:', !!hamburger); // Debug log
+    console.log('Nav menu found:', !!navMenu); // Debug log
+    
     if (hamburger && navMenu) {
-        console.log('Mobile navigation initialized'); // Debug log
+        console.log('Mobile navigation initialized successfully'); // Debug log
         
-        hamburger.addEventListener('click', (e) => {
+        // Simple click handler
+        hamburger.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
             
-            console.log('Hamburger clicked'); // Debug log
+            console.log('Hamburger clicked!'); // Debug log
             
+            // Toggle classes
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            console.log('Hamburger active:', hamburger.classList.contains('active')); // Debug log
+            console.log('Nav menu active:', navMenu.classList.contains('active')); // Debug log
             
             // Prevent body scroll when menu is open
             if (navMenu.classList.contains('active')) {
                 body.style.overflow = 'hidden';
-                navMenu.style.animation = 'slideDown 0.3s ease forwards';
-                console.log('Menu opened'); // Debug log
+                console.log('Menu opened - body scroll disabled'); // Debug log
             } else {
                 body.style.overflow = '';
-                navMenu.style.animation = 'slideUp 0.3s ease forwards';
-                console.log('Menu closed'); // Debug log
+                console.log('Menu closed - body scroll enabled'); // Debug log
             }
-        });
+        };
         
         // Close menu when clicking on links
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -641,14 +648,22 @@ function initEnhancedMobileNav() {
             e.preventDefault();
         });
         
-        // Ensure menu is properly positioned
+        // Force CSS properties
         navMenu.style.position = 'fixed';
         navMenu.style.top = '70px';
         navMenu.style.left = '-100%';
         navMenu.style.width = '100%';
         navMenu.style.zIndex = '1000';
+        navMenu.style.display = 'flex';
+        navMenu.style.flexDirection = 'column';
+        navMenu.style.backgroundColor = 'white';
+        navMenu.style.transition = 'all 0.3s ease';
+        
+        console.log('Mobile navigation setup complete'); // Debug log
     } else {
-        console.log('Hamburger or nav menu not found'); // Debug log
+        console.error('Hamburger or nav menu not found!'); // Debug log
+        console.error('Hamburger element:', hamburger); // Debug log
+        console.error('Nav menu element:', navMenu); // Debug log
     }
 }
 
