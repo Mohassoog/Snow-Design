@@ -585,7 +585,14 @@ function initEnhancedMobileNav() {
     const body = document.body;
     
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
+        console.log('Mobile navigation initialized'); // Debug log
+        
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Hamburger clicked'); // Debug log
+            
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
@@ -593,9 +600,11 @@ function initEnhancedMobileNav() {
             if (navMenu.classList.contains('active')) {
                 body.style.overflow = 'hidden';
                 navMenu.style.animation = 'slideDown 0.3s ease forwards';
+                console.log('Menu opened'); // Debug log
             } else {
                 body.style.overflow = '';
                 navMenu.style.animation = 'slideUp 0.3s ease forwards';
+                console.log('Menu closed'); // Debug log
             }
         });
         
@@ -605,6 +614,7 @@ function initEnhancedMobileNav() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 body.style.overflow = '';
+                console.log('Link clicked, menu closed'); // Debug log
             });
         });
         
@@ -625,6 +635,20 @@ function initEnhancedMobileNav() {
                 body.style.overflow = '';
             }
         });
+        
+        // Touch events for better mobile experience
+        hamburger.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+        });
+        
+        // Ensure menu is properly positioned
+        navMenu.style.position = 'fixed';
+        navMenu.style.top = '70px';
+        navMenu.style.left = '-100%';
+        navMenu.style.width = '100%';
+        navMenu.style.zIndex = '1000';
+    } else {
+        console.log('Hamburger or nav menu not found'); // Debug log
     }
 }
 
