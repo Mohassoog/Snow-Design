@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Snow Design</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Snow Design</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="company.html" class="nav-link">Company</a></li>
+                <li class="nav-item"><a href="why-us.html" class="nav-link">Why Us</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Share Your Experience</h3>
+                    <p>Rate our services and share your feedback. Your reviews help us improve and help other clients make informed decisions.</p>
+                    
+
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>snowdesign249@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+250 798 334 382</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rwanda</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/250798334382" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:snowdesign249@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.instagram.com/snow_design249?igsh=MWszOWl0ZHhlaDdqdw==" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/175QGCiAzr/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@snow.design92?_t=ZM-8yoltz7vRor&_r=1" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/snow-design-08936737a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="reviewForm" action="https://formspree.io/f/xpwljkpq" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company" class="sr-only">Company/Position</label>
+                        <input type="text" id="company" name="company" placeholder="Company/Position (Optional)">
+                    </div>
+                    
+                    <div class="rating-group">
+                        <label>Your Rating:</label>
+                        <div class="rating-stars">
+                            <i class="fas fa-star rating-star" data-rating="1"></i>
+                            <i class="fas fa-star rating-star" data-rating="2"></i>
+                            <i class="fas fa-star rating-star" data-rating="3"></i>
+                            <i class="fas fa-star rating-star" data-rating="4"></i>
+                            <i class="fas fa-star rating-star" data-rating="5"></i>
+                        </div>
+                        <span class="rating-text">Click to rate</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Your Review</label>
+                        <textarea id="message" name="message" placeholder="Share your experience with us..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form>
+            </div>
+            
+            <!-- Interactive Contact Map -->
+            <div class="contact-map">
+                <div style="text-align: center;">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Our Location</h3>
+                    <p style="margin: 0; opacity: 0.9;">Rwanda, East Africa</p>
+                    <p style="margin: 0.5rem 0 0 0; opacity: 0.8; font-size: 0.9rem;">Serving clients worldwide with remote collaboration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Snow Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

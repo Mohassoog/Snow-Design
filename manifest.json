@@ -1,0 +1,27 @@
+{
+    "name": "Snow Design - Graphic Design & Web Development Agency",
+    "short_name": "Snow Design",
+    "description": "Snow Design is a creative agency offering logos, social media design, websites, and branding.",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["design", "business", "productivity"],
+    "lang": "en",
+    "dir": "ltr"
+} 
