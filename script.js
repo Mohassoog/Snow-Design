@@ -868,3 +868,47 @@ window.addEventListener('scroll', () => {
     initEnhancedMobileNav();
     initPerformanceMonitoring();
 });
+
+// Ensure mobile navigation works even if other scripts fail
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded - initializing mobile navigation...');
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        console.log('Found hamburger and nav menu - setting up click handler');
+        
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Hamburger clicked!');
+            
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+                console.log('Menu opened');
+            } else {
+                document.body.style.overflow = '';
+                console.log('Menu closed');
+            }
+        });
+        
+        // Close menu when clicking on links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                console.log('Link clicked, menu closed');
+            });
+        });
+        
+        console.log('Mobile navigation setup complete');
+    } else {
+        console.error('Hamburger or nav menu not found in fallback initialization');
+    }
+});

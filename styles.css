@@ -210,10 +210,25 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    cursor: pointer !important;
+    touch-action: manipulation;
 }
 
 .hamburger * {
     pointer-events: none;
+}
+
+/* Force hamburger to be visible and clickable on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        position: relative !important;
+        z-index: 1001 !important;
+    }
 }
 
 /* Mobile Navigation Animations */

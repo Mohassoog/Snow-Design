@@ -363,5 +363,43 @@
     </script>
     
     <script src="script.js"></script>
+    
+    <!-- Fallback mobile navigation script -->
+    <script>
+        // Simple fallback for mobile navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                if (hamburger && navMenu) {
+                    console.log('Fallback: Setting up mobile navigation');
+                    
+                    hamburger.onclick = function(e) {
+                        e.preventDefault();
+                        console.log('Fallback: Hamburger clicked');
+                        
+                        hamburger.classList.toggle('active');
+                        navMenu.classList.toggle('active');
+                        
+                        if (navMenu.classList.contains('active')) {
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            document.body.style.overflow = '';
+                        }
+                    };
+                    
+                    // Close menu when clicking on links
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.onclick = function() {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                            document.body.style.overflow = '';
+                        };
+                    });
+                }
+            }, 100);
+        });
+    </script>
 </body>
 </html> 
