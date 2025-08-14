@@ -104,6 +104,75 @@ body {
     padding: 0 20px;
 }
 
+/* Large screen optimizations */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+        padding: 0 40px;
+    }
+    
+    /* Improve grid layouts for large screens */
+    .why-grid,
+    .projects-grid,
+    .contact-grid,
+    .company-grid,
+    .skills-grid,
+    .faq-grid,
+    .process-grid,
+    .pricing-grid {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 4rem;
+    }
+    
+    /* Improve text sizing for large screens */
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1600px;
+        padding: 0 60px;
+    }
+    
+    /* Further improve grid layouts for very large screens */
+    .why-grid,
+    .projects-grid,
+    .contact-grid,
+    .company-grid,
+    .skills-grid,
+    .faq-grid,
+    .process-grid,
+    .pricing-grid {
+        max-width: 1600px;
+        gap: 5rem;
+    }
+    
+    /* Improve text sizing for very large screens */
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 3.5rem;
+    }
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -124,6 +193,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Large screen navigation optimizations */
+@media (min-width: 1400px) {
+    .nav-container {
+        max-width: 1400px;
+        padding: 0 40px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .nav-container {
+        max-width: 1600px;
+        padding: 0 60px;
+    }
 }
 
 .nav-logo a {
@@ -272,6 +356,23 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+/* Large screen hero optimizations */
+@media (min-width: 1400px) {
+    .hero-container {
+        max-width: 1400px;
+        padding: 0 40px;
+        gap: 6rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .hero-container {
+        max-width: 1600px;
+        padding: 0 60px;
+        gap: 8rem;
+    }
 }
 
 .hero-title {
@@ -1928,6 +2029,23 @@ html {
     padding: 0 20px;
 }
 
+/* Large screen stats optimizations */
+@media (min-width: 1400px) {
+    .stats-grid {
+        max-width: 1400px;
+        padding: 0 40px;
+        gap: 4rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .stats-grid {
+        max-width: 1600px;
+        padding: 0 60px;
+        gap: 5rem;
+    }
+}
+
 .stat-card {
     text-align: center;
     padding: 2rem;
@@ -1970,6 +2088,23 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
     margin-top: 3rem;
+}
+
+/* Large screen why-grid optimizations */
+@media (min-width: 1400px) {
+    .why-grid {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 4rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .why-grid {
+        max-width: 1600px;
+        gap: 5rem;
+    }
 }
 
 .why-card {
@@ -2436,6 +2571,20 @@ html {
         max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+@media (min-width: 1400px) {
+    .team-grid {
+        max-width: 1400px;
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .team-grid {
+        max-width: 1600px;
+        gap: 4rem;
     }
 }
 
