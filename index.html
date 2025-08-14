@@ -39,7 +39,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Structured Data -->
@@ -273,16 +273,18 @@
     </footer>
 
     <!-- Google Analytics -->
-    <!-- IMPORTANT: Replace with your GA ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ3X3QNLGT"></script>
+    <!-- IMPORTANT: Replace with your actual GA ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-SZ3X3QNLGT', {
+        gtag('config', 'GA_MEASUREMENT_ID', {
             'page_title': 'Snow Design Website',
             'custom_map': { 'dimension1': 'service_type', 'dimension2': 'client_location' }
         });
+        
+        // Analytics event tracking
         document.addEventListener('DOMContentLoaded', function() {
             const contactForm = document.querySelector('.contact-form');
             if (contactForm) {
@@ -290,12 +292,28 @@
                     gtag('event', 'form_submit', { 'event_category': 'engagement', 'event_label': 'contact_form' });
                 });
             }
+            
+            // Social media tracking
             const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-            whatsappLinks.forEach(link => { link.addEventListener('click', function() { gtag('event', 'click', { 'event_category': 'engagement', 'event_label': 'whatsapp_contact' }); }); });
+            whatsappLinks.forEach(link => { 
+                link.addEventListener('click', function() { 
+                    gtag('event', 'click', { 'event_category': 'engagement', 'event_label': 'whatsapp_contact' }); 
+                }); 
+            });
+            
             const facebookLinks = document.querySelectorAll('a[href*="facebook.com"]');
-            facebookLinks.forEach(link => { link.addEventListener('click', function() { gtag('event', 'click', { 'event_category': 'engagement', 'event_label': 'facebook_profile' }); }); });
+            facebookLinks.forEach(link => { 
+                link.addEventListener('click', function() { 
+                    gtag('event', 'click', { 'event_category': 'engagement', 'event_label': 'facebook_profile' }); 
+                }); 
+            });
+            
             const instagramLinks = document.querySelectorAll('a[href*="instagram.com"]');
-            instagramLinks.forEach(link => { link.addEventListener('click', function() { gtag('event', 'click', { 'event_category': 'engagement', 'event_label': 'instagram_profile' }); }); });
+            instagramLinks.forEach(link => { 
+                link.addEventListener('click', function() { 
+                    gtag('event', 'click', { 'event_category': 'engagement', 'event_label': 'instagram_profile' }); 
+                }); 
+            });
         });
     </script>
     
@@ -321,7 +339,7 @@
         // Performance monitoring
         window.addEventListener('load', function() {
             // Track Core Web Vitals
-            if ('PerformanceObserver' in window) {
+            if ('PerformanceObserver' in window && typeof gtag !== 'undefined') {
                 const observer = new PerformanceObserver((list) => {
                     list.getEntries().forEach((entry) => {
                         if (entry.name === 'LCP') {
@@ -351,18 +369,72 @@
         // Service Worker for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                        navigator.serviceWorker.register('sw.js')
-            .then(function(registration) {
-                // Service Worker registered successfully
-            })
-            .catch(function(registrationError) {
-                // Service Worker registration failed
-            });
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker registered successfully:', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('Service Worker registration failed:', registrationError);
+                    });
             });
         }
     </script>
     
     <script src="script.js"></script>
+    
+    <!-- Search functionality -->
+    <script>
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const query = searchInput.value.trim().toLowerCase();
+            
+            if (query === '') {
+                alert('Please enter a search term');
+                return;
+            }
+            
+            // Define searchable content
+            const searchablePages = {
+                'logo': 'services.html',
+                'design': 'services.html',
+                'website': 'services.html',
+                'branding': 'services.html',
+                'social media': 'services.html',
+                'about': 'about.html',
+                'team': 'about.html',
+                'contact': 'contact.html',
+                'services': 'services.html',
+                'company': 'company.html',
+                'why us': 'why-us.html',
+                'portfolio': 'services.html',
+                'projects': 'services.html'
+            };
+            
+            // Find matching page
+            for (const [keyword, page] of Object.entries(searchablePages)) {
+                if (query.includes(keyword)) {
+                    window.location.href = page;
+                    return;
+                }
+            }
+            
+            // If no direct match, show search results
+            alert('Search results for: ' + query + '\n\nPlease check our services page for related content.');
+            window.location.href = 'services.html';
+        }
+        
+        // Allow search on Enter key
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            }
+        });
+    </script>
     
     <!-- Fallback mobile navigation script -->
     <script>
