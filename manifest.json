@@ -1,12 +1,16 @@
 {
-    "name": "Snow Design - Graphic Design & Web Development Agency",
+    "name": "Snow Design - Professional Graphic Design & Web Development Agency",
     "short_name": "Snow Design",
-    "description": "Snow Design is a creative agency offering logos, social media design, websites, and branding.",
+    "description": "Snow Design is a creative agency offering logos, social media design, websites, and branding. Fast delivery, friendly service, standout results.",
     "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#2563eb",
     "orientation": "portrait-primary",
+    "scope": "./",
+    "lang": "en",
+    "dir": "ltr",
+    "categories": ["design", "business", "productivity", "graphics", "web development"],
     "icons": [
         {
             "src": "images/profile-photo.jpg",
@@ -19,9 +23,87 @@
             "sizes": "512x512",
             "type": "image/jpeg",
             "purpose": "any maskable"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "72x72",
+            "type": "image/jpeg",
+            "purpose": "any"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "96x96",
+            "type": "image/jpeg",
+            "purpose": "any"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "128x128",
+            "type": "image/jpeg",
+            "purpose": "any"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "144x144",
+            "type": "image/jpeg",
+            "purpose": "any"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "152x152",
+            "type": "image/jpeg",
+            "purpose": "any"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "384x384",
+            "type": "image/jpeg",
+            "purpose": "any"
         }
     ],
-    "categories": ["design", "business", "productivity"],
-    "lang": "en",
-    "dir": "ltr"
+    "shortcuts": [
+        {
+            "name": "Our Services",
+            "short_name": "Services",
+            "description": "View our design and development services",
+            "url": "./services.html",
+            "icons": [
+                {
+                    "src": "images/profile-photo.jpg",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Contact Us",
+            "short_name": "Contact",
+            "description": "Get in touch with our team",
+            "url": "./contact.html",
+            "icons": [
+                {
+                    "src": "images/profile-photo.jpg",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "1280x720",
+            "type": "image/jpeg",
+            "form_factor": "wide"
+        },
+        {
+            "src": "images/profile-photo.jpg",
+            "sizes": "750x1334",
+            "type": "image/jpeg",
+            "form_factor": "narrow"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    }
 } 
